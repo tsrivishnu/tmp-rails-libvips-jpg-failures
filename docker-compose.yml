@@ -1,0 +1,44 @@
+version: '3.2'
+services:
+  app: &app
+    image: ruby:2.7.1
+    depends_on:
+      - redis
+    networks:
+      - sentry_test_dev
+    expose:
+      - 3000
+    hostname: "app"
+    environment:
+      REDIS_URL: "redis://redis:6379/0"
+      BUNDLE_PATH: /app/.bundle
+      RUBYOPT: "-W:deprecated"
+    volumes:
+      - app-source:/app
+    tty: true
+    stdin_open: true
+    working_dir: "/app"
+
+  redis:
+    image: redis:5.0.7-alpine
+    networks:
+      - sentry_test_dev
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+
+
+
+networks:
+  sentry_test_dev:
+    driver: bridge
+    ipam:
+      driver: default
+
+volumes:
+  app-source:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "${PWD}"
