@@ -1,7 +1,9 @@
 version: '3.2'
 services:
   app: &app
-    image: ruby:2.7.1
+    # image: ruby:2.7.1
+    build:
+      context: .
     depends_on:
       - redis
     networks:
