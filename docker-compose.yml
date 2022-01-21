@@ -21,6 +21,12 @@ services:
     stdin_open: true
     working_dir: "/app"
 
+  app_server:
+    <<: *app
+    ports:
+      - 3000:3000
+    command: "bundle exec rails s -b 0.0.0.0"
+
   redis:
     image: redis:5.0.7-alpine
     networks:

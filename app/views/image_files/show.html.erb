@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @image_file.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= link_to @image_file.image.filename, @image_file.image if @image_file.image.attached? %>
+  <%= image_tag @image_file.image_variant_url %>
+</p>
+
+<%= link_to 'Edit', edit_image_file_path(@image_file) %> |
+<%= link_to 'Back', image_files_path %>
