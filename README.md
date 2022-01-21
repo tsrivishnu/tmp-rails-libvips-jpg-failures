@@ -1,8 +1,8 @@
-# Rails app to test Sentry capture in ActiveJob (with resque backend)
+# Rails app to test an issue with creating ActiveStorage JPG image variants
 
-Rails app to reproduce the bug with Sentry not being able to capture exceptions
-from Resque based ActiveJobs.
-See: https://github.com/getsentry/sentry-ruby/issues/1559
+Rails app to reproduce the `VipsForeignLoad` error when creating variants for
+JPG/JPEG image files with ActiveStorage.
+See: https://github.com/janko/image_processing/issues/97
 
 ## Setup
 
