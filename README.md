@@ -26,20 +26,26 @@ the first line:
     ```
 
 3. Bundle install
-  ```console
-  $ docker-compose run --rm app bundle install
-  ```
-4. Create and migrate database
-  ```console
-  $ docker-compose run --rm app bundle exec rails db:setup
-  $ docker-compose run --rm app bundle exec rails db:migrate
-  ```
-5. Start Rails server:
-  ```console
-  $ docker-compose up app_server
-  ```
-6. Visit http://localhost:3000/image_files
 
+    ```console
+    $ docker-compose run --rm app bundle install
+    ```
+
+4. Create and migrate database
+
+    ```console
+    $ docker-compose run --rm app bundle exec rails db:setup
+    $ docker-compose run --rm app bundle exec rails db:migrate
+    ```
+
+5. Start Rails server:
+
+    ```console
+    $ docker-compose up app_server
+    ```
+
+6. Visit http://localhost:3000/image_files/new and upload create a new record
+with a JPG file.
 
 ## Usage
 
